@@ -3870,3 +3870,25 @@ documentation=http://www.ti.com/lit/gpn/opa2822
 test_refdes=X1
 model_status_broken=ngspice_19
 
+[UA741]
+symbol=opamp.sym
+value=UA741
+modelname=UA741
+file=UA741.301
+refdes=X?
+pinseq_inp=1
+pinseq_inn=2
+pinseq_pp=3
+pinseq_pn=4
+pinseq_out=5
+pinnr_inp=in+
+pinnr_inn=in-
+pinnr_pp=V+
+pinnr_pn=V-
+pinnr_out=out
+footprint=none
+description=General Purpose Operational Amplifier
+documentation=http://www.ti.com/product/ua741
+test_refdes=X1
+model_status_broken=ngspice_19
+

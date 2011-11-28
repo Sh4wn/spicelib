@@ -8,30 +8,6 @@ CURRENT_CHECKSUMS=model_checksums/adi_opamps_lib.md5sum
 model_status=undefined
 
 
-# Subcircuit with 5 connections
-[AD8007_ADI00001]
-symbol=opamp.sym
-value=AD8007
-modelname=AD8007
-file=AD8007.cir
-refdes=X?
-pinseq_inp=1
-pinseq_inn=2
-pinseq_pp=3
-pinseq_pn=4
-pinseq_out=5
-pinnr_inp=in+
-pinnr_inn=in-
-pinnr_pp=V+
-pinnr_pn=V-
-pinnr_out=out
-footprint=none
-description=TBD1
-documentation=TBD2
-test_refdes=X1
-model_status_good=ngspice_19
-
-
 
 # Subcircuit with 5 connections
 [AD8012_ADI00002]

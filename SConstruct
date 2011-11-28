@@ -48,7 +48,7 @@ def test_single(target, source, env):
     #env.library should be a testlibrary.modellibrary
     #env.partid should be the section from the index file eg LM741_LM0001
     partid = env['partid']
-    env['library'].test_single(partid)
+    #env['library'].test_single(partid)
     return None
 bld = Builder(action = test_single)
 env.Append(BUILDERS = {'TestSingle': bld})
@@ -147,8 +147,8 @@ class Vendor(object):
         return nodes
     def test_all(self):
         nodes = []
-        for sec in self.sections:
-            nodes.append(self.test_section(sec))
+        #for sec in self.sections:
+        #    nodes.append(self.test_section(sec))
         return nodes
     def test_section(self, section):
         nodes = []
@@ -167,17 +167,14 @@ class Vendor(object):
             nodes.append(env.TestSingle(target, sources, partid=partid, library=library))
         setattr(self, 'test_' + section,
                 env.Alias(''.join(['test_', self.abbrev, '_', section]), nodes))
-        return nodes
+        return []
     def test_index_all(self):
         nodes = []
         for sec in self.sections:
             nodes.append(self.test_index_section(sec))
-        return nodes
+        return []
     def test_index_section(self, section):
-        return env.HtmlIndex(os.path.join(TESTDIR, self.abbrev, section, 'index.html'),
-            [os.path.join('indexfiles',
-                ''.join([self.abbrev, '_', section, '.index'])),
-             getattr(self, ''.join(['test_', section]))])
+        return []
 
 
 
@@ -297,10 +294,9 @@ class TexasInstruments(Vendor):
         fixes = []
         misplaced_ends = ['OPA243.mod', 'OPA251.mod', 'OPA336.mod',
                     'OPA241.mod']
-        if 'opa' != firstdir[0:3] or \
-                os.path.splitext(model)[1] not in \
-                    ['.mod', '.MOD', '.txt', '.sub'] or \
-                model in ['Readme.txt', 'disclaimer.txt']:
+        if os.path.splitext(model)[1] not in \
+                    ['.mod', '.MOD', '.txt', '.sub', '.301'] or \
+                model in ['Readme.txt', 'disclaimer.txt'] or 'readme' in model:
             return None, None
         else:
             if model in misplaced_ends:
@@ -467,7 +463,8 @@ class NXP(Vendor):
                 'PZU8\.2B.*A\.prm',
                 'PZU8\.2DB2\.prm',
                 'PZU9\.1B.*A\.prm',
-                'PZU9\.1DB2\.prm']
+                'PZU9\.1DB2\.prm',
+				'MMBD3004BRM\.prm']
         string_replacements = {
                 'PESD3V3L1BA.prm': ("*.MODEL", ".MODEL" ),
 	            '1N4148.prm': (".END", ".ENDS"),
@@ -542,7 +539,7 @@ class AnalogDevices(Vendor):
         "AD549.cir", "AD704.cir", "AD706.cir", "AD708.cir", "AD711.cir",
         "AD712.cir", "AD713.cir", "AD743.cir", "AD745.cir", "AD746.cir",
         "AD795.cir", "AD797.cir", "AD8000.cir", "AD8001.cir", "AD8002.cir",
-        "AD8003.cir", "AD8004.cir", "AD8005.cir", "AD8007.cir", "AD8008.cir",
+        "AD8003.cir", "AD8004.cir", "AD8005.cir", "AD8008.cir",
         "AD8009.cir", "AD8010.cir", "AD8011.cir", "AD8012.cir", "AD8013.cir",
         "AD8014.cir", "AD8016.cir", "AD8017.cir", "AD8018.cir", "AD8019.cir",
         "AD8021.cir", "AD8022.cir", "AD8023.cir", "AD8024.cir", "AD8027.cir",

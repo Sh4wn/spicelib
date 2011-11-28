@@ -146,29 +146,6 @@ test_refdes=X1
 test_vsupply=30
 
 
-[LF442A_LM00007]
-symbol=opamp.sym
-value=LF442A
-modelname=LF442A
-file=LF442A.MOD
-refdes=X?
-pinseq_inp=1
-pinseq_inn=2
-pinseq_pp=3
-pinseq_pn=4
-pinseq_out=5
-pinnr_inp=in+
-pinnr_inn=in-
-pinnr_pp=V+
-pinnr_pn=V-
-pinnr_out=out
-footprint=none
-description=Dual Low Power JFET Input Operational Amplifier
-documentation=http://www.national.com/ds/LF/LF442.pdf
-test_refdes=X1
-test_vsupply=40
-
-
 [LF442B_LM00008]
 symbol=opamp.sym
 value=LF442B
@@ -4903,29 +4880,6 @@ pinnr_out=out
 footprint=none
 description=TBD1
 documentation=http://www.national.com/ds/LM/LMV854.pdf
-test_refdes=X1
-model_status_good=ngspice_19
-
-
-[LMV861_LM00215]
-symbol=opamp.sym
-value=LMV861
-modelname=LMV861
-file=LMV861.MOD
-refdes=X?
-pinseq_inp=1
-pinseq_inn=2
-pinseq_pp=3
-pinseq_pn=4
-pinseq_out=5
-pinnr_inp=in+
-pinnr_inn=in-
-pinnr_pp=V+
-pinnr_pn=V-
-pinnr_out=out
-footprint=none
-description=TBD1
-documentation=http://www.national.com/ds/LM/LMV861.pdf
 test_refdes=X1
 model_status_good=ngspice_19
 
